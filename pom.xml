@@ -18,9 +18,9 @@
   <packaging>pom</packaging>
     
   <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/gatein/tools/maven/parent/tags/1.0.0-GA</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/gatein/tools/maven/parent/tags/1.0.0-GA</developerConnection>
-    <url>http://fisheye.jboss.org/browse/gatein/tools/maven/parent/tags/1.0.0-GA</url>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/gatein/maven/parent/tags/1.0.0-GA</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/gatein/maven/parent/tags/1.0.0-GA</developerConnection>
+    <url>http://fisheye.jboss.org/browse/gatein/maven/parent/tags/1.0.0-GA</url>
   </scm>
   
   <properties>
