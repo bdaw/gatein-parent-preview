@@ -14,7 +14,7 @@
   
   <groupId>org.gatein</groupId>
   <artifactId>gatein-parent</artifactId>
-  <version>1.0.3-GA-SNAPSHOT</version>
+  <version>1.1.0-GA-SNAPSHOT</version>
   <packaging>pom</packaging>
     
   <scm>
@@ -34,8 +34,8 @@
     <maven.compiler.optimize>true</maven.compiler.optimize>
 
     <!-- maven-compiler-plugin -->
-    <maven.compiler.target>1.5</maven.compiler.target>
-    <maven.compiler.source>1.5</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.6</maven.compiler.source>
 
     <!-- maven-enforcer-plugin -->
     <maven.min.version>2.2.1</maven.min.version>
@@ -43,11 +43,31 @@
     <!-- maven-release-plugin -->
     <autoVersionSubmodules>true</autoVersionSubmodules>
 
-    <!-- maven-release-plugin --> 
-    <arguments>-Prelease,pkg-tomcat,pkg-jbossas -DskipTests</arguments> 
-
     <!-- cf http://jira.codehaus.org/browse/MRELEASE-3 --> 
     <preparationGoals>clean install</preparationGoals> 
+
+    <!-- **************** -->
+    <!-- Plugins versions -->
+    <!-- **************** -->
+    <version.antrun.plugin>1.6</version.antrun.plugin>
+    <version.clean.plugin>2.4.1</version.clean.plugin>
+    <version.checkstyle.plugin>2.6</version.checkstyle.plugin>
+    <version.compiler.plugin>2.3.2</version.compiler.plugin>
+    <version.dependency.plugin>2.2</version.dependency.plugin>
+    <version.deploy.plugin>2.5</version.deploy.plugin>
+    <version.install.plugin>2.3.1</version.install.plugin>
+    <version.jar.plugin>2.3.1</version.jar.plugin>
+    <version.surefire.plugin>2.7.2</version.surefire.plugin>
+    <version.resources.plugin>2.4.3</version.resources.plugin>
+    <version.war.plugin>2.1.1</version.war.plugin>
+    <version.ear.plugin>2.5</version.ear.plugin>
+    <version.site.plugin>2.2</version.site.plugin>
+    <version.source.plugin>2.1.2</version.source.plugin>
+    <version.javadoc.plugin>2.7</version.javadoc.plugin>
+    <version.buildnumber.plugin>1.0-beta-4</version.buildnumber.plugin>
+    <version.exec.plugin>1.2</version.exec.plugin>
+    <version.build-helper.plugin>1.5</version.build-helper.plugin>
+
   </properties>
   
   <!-- **************** -->
@@ -60,13 +80,94 @@
       <!-- Plugins are sorted by shortname : clean, deploy, ... -->
       <plugins>
         <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>exec-maven-plugin</artifactId>
+           <version>${version.exec.plugin}</version>
+        </plugin>
+        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>build-helper-maven-plugin</artifactId>
+           <version>${version.build-helper.plugin}</version>
+        </plugin>
+	<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${version.antrun.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
-          <artifactId>jboss-packaging-maven-plugin</artifactId>
-          <version>2.0-beta-1</version>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${version.buildnumber.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${version.checkstyle.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${version.clean.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.compiler.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${version.dependency.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.deploy.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.install.plugin}</version>
+        </plugin>
+        <plugin>                
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${version.resources.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.javadoc.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${version.site.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${version.surefire.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.source.plugin}</version>
+        </plugin>   
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${version.war.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ear-plugin</artifactId>
+          <version>${version.ear.plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.jar.plugin}</version>
           <configuration>
             <archive>
               <manifest>
@@ -165,43 +266,6 @@
       </build>
     </profile>
   </profiles>
-
-  <!-- **************** -->
-  <!-- Repositiories    -->
-  <!-- **************** -->
-  <repositories>
-    <repository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Maven Repository Group</name>
-      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Maven Repository Group</name>
-      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 
   <!-- **************** -->
   <!-- Reporting        -->
