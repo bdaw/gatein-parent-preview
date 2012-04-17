@@ -18,10 +18,10 @@
   <packaging>pom</packaging>
     
   <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/gatein/maven/parent/trunk</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/gatein/maven/parent/trunk</developerConnection>
-    <url>http://fisheye.jboss.org/browse/gatein/maven/parent/trunk</url>
-  </scm>
+      <connection>scm:git:git://github.com/gatein/gatein-parent.git</connection>
+      <developerConnection>scm:git:ssh://git@github.com/gatein/gatein-parent.git</developerConnection>
+      <url>https://github.com/gatein/gatein-parent</url>
+   </scm>
   
   <properties>
     <!-- ************** -->
@@ -54,6 +54,16 @@
     <version.buildnumber.plugin>1.0-beta-4</version.buildnumber.plugin>
     <version.exec.plugin>1.2</version.exec.plugin>
     <version.build-helper.plugin>1.5</version.build-helper.plugin>
+    
+    <!-- maven-release-plugin -->
+    <useReleaseProfile>false</useReleaseProfile>
+    <arguments>-Prelease</arguments>
+    <version.release.plugin>2.2.1</version.release.plugin>
+    <pushChanges>false</pushChanges>
+    <autoVersionSubmodules>true</autoVersionSubmodules>
+      
+    <!-- buildnumber-maven-plugin : needs 1.0 for git -->
+    <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
 
   </properties>
   
